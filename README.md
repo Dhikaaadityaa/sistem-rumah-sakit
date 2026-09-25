@@ -1,66 +1,286 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Rumah Sakit
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Rumah Sakit merupakan aplikasi berbasis web untuk membantu proses pengajuan janji temu dokter dan pengecekan ketersediaan ruangan rumah sakit.
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* Pengelolaan data pengguna
+* Pengelolaan data dokter
+* Pengelolaan spesialisasi dokter
+* Pengajuan janji temu dokter
+* Pengelolaan status janji temu
+* Pengecekan ketersediaan ruangan rumah sakit
+* Pembagian akses berdasarkan *role* pengguna
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* PHP 8.1
+* Laravel 10
+* PostgreSQL 16
+* Composer
+* Git & GitHub
+* Laragon
 
-## Learning Laravel
+## Persyaratan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Pastikan perangkat sudah memiliki:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* PHP 8.1 atau versi yang kompatibel dengan project
+* Composer
+* PostgreSQL
+* Git
+* Laragon atau web server lainnya
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 1. Clone Repository
 
-## Laravel Sponsors
+Clone repository dari GitHub:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+git clone https://github.com/Dhikaaadityaa/sistem-rumah-sakit.git
+```
 
-### Premium Partners
+Masuk ke folder project:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```bash
+cd sistem-rumah-sakit
+```
 
-## Contributing
+## 2. Install Dependency
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Jalankan:
 
-## Code of Conduct
+```bash
+composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Perintah tersebut akan menginstall seluruh *dependency* Laravel yang dibutuhkan oleh project.
 
-## Security Vulnerabilities
+## 3. Membuat File Environment
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Salin file `.env.example` menjadi `.env`.
 
-## License
+Pada Windows:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+copy .env.example .env
+```
+
+Kemudian buka file `.env`.
+
+## 4. Membuat Database PostgreSQL
+
+Buat database PostgreSQL dengan nama:
+
+```text
+rumah_sakit
+```
+
+Contoh menggunakan PostgreSQL:
+
+```sql
+CREATE DATABASE rumah_sakit;
+```
+
+Sesuaikan username dan password PostgreSQL dengan konfigurasi PostgreSQL pada komputer masing-masing.
+
+## 5. Konfigurasi Database
+
+Buka file `.env` dan sesuaikan konfigurasi database:
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=rumah_sakit
+DB_USERNAME=postgres
+DB_PASSWORD=YOUR_POSTGRES_PASSWORD
+```
+
+Ganti:
+
+```text
+YOUR_POSTGRES_PASSWORD
+```
+
+dengan password PostgreSQL masing-masing.
+
+> Jangan memasukkan password PostgreSQL asli ke dalam repository GitHub.
+
+## 6. Generate Application Key
+
+Jalankan:
+
+```bash
+php artisan key:generate
+```
+
+## 7. Menjalankan Migration dan Seeder
+
+Untuk membuat seluruh tabel sekaligus mengisi data awal:
+
+```bash
+php artisan migrate --seed
+```
+
+Migration akan membuat tabel:
+
+* `users`
+* `specialties`
+* `doctors`
+* `appointments`
+* `rooms`
+
+Seeder akan memasukkan data awal untuk:
+
+* User
+* Spesialisasi
+* Dokter
+* Ruangan
+* Janji temu
+
+Jika ingin menghapus seluruh tabel dan membuat ulang database beserta data awal:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+> Perintah `migrate:fresh --seed` akan menghapus seluruh tabel dan data yang ada di database.
+
+## 8. Menjalankan Aplikasi
+
+Jalankan:
+
+```bash
+php artisan serve
+```
+
+Kemudian buka alamat:
+
+```text
+http://127.0.0.1:8000
+```
+
+## 9. Akun untuk Pengujian
+
+### Admin
+
+Email:
+
+```text
+admin@rumahsakit.test
+```
+
+Password:
+
+```text
+password
+```
+
+### Pasien
+
+Email:
+
+```text
+pasien@rumahsakit.test
+```
+
+Password:
+
+```text
+password
+```
+
+Akun tersebut merupakan data *dummy* yang dibuat melalui `UserSeeder`.
+
+## 10. Struktur Database
+
+Relasi utama sistem:
+
+```text
+specialties
+     │
+     │ 1
+     │
+     └──────< doctors
+                 │
+                 │ 1
+                 │
+                 └──────< appointments >────── users
+```
+
+Sedangkan tabel `rooms` digunakan untuk menyimpan informasi ketersediaan ruangan rumah sakit.
+
+### Tabel Users
+
+Menyimpan data pengguna sistem, termasuk *role* `admin` dan `patient`.
+
+### Tabel Specialties
+
+Menyimpan data spesialisasi dokter.
+
+### Tabel Doctors
+
+Menyimpan data dokter dan terhubung dengan tabel `specialties`.
+
+### Tabel Appointments
+
+Menyimpan data janji temu pasien dengan dokter.
+
+### Tabel Rooms
+
+Menyimpan informasi ruangan rumah sakit beserta statusnya:
+
+* `available`
+* `occupied`
+* `maintenance`
+
+## 11. Seeder
+
+Seeder utama berada pada:
+
+```text
+database/seeders/DatabaseSeeder.php
+```
+
+Seeder yang digunakan:
+
+```text
+UserSeeder
+SpecialtySeeder
+DoctorSeeder
+RoomSeeder
+AppointmentSeeder
+```
+
+Urutan *seeding* disesuaikan dengan hubungan antar tabel agar data yang memiliki *foreign key* dapat dibuat dengan benar.
+
+## 12. GitHub Collaboration
+
+Setiap anggota tim harus melakukan *clone* repository terlebih dahulu:
+
+```bash
+git clone https://github.com/Dhikaaadityaa/sistem-rumah-sakit.git
+```
+
+Setelah melakukan perubahan:
+
+```bash
+git status
+git add .
+git commit -m "Deskripsi perubahan"
+git push
+```
+
+Sebelum mulai mengerjakan perubahan baru, disarankan mengambil perubahan terbaru dari repository:
+
+```bash
+git pull origin main
+```
+
+## Catatan
+
+File `.env` berisi konfigurasi lokal dan informasi sensitif sehingga tidak boleh di-*commit* ke GitHub.
+
+Setiap anggota tim harus membuat file `.env` masing-masing berdasarkan `.env.example`.
+
+Project ini menggunakan database PostgreSQL sehingga setiap anggota tim perlu memiliki PostgreSQL dan membuat database `rumah_sakit` pada komputer masing-masing.
