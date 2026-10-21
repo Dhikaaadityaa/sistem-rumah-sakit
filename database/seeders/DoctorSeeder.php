@@ -2,60 +2,33 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Doctor;
 use App\Models\Specialty;
+use Illuminate\Database\Seeder;
 
 class DoctorSeeder extends Seeder
 {
     public function run(): void
     {
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Penyakit Dalam')->first()->id,
-            'name' => 'Dr. Andi Pratama',
-            'phone' => '081234567801',
-        ]);
+        $data = [
+            ["Penyakit Dalam", "dr. Andi Pratama, Sp.PD", "081234567801"],
+            ["Penyakit Dalam", "dr. Budi Santoso, Sp.PD", "081234567802"],
+            ["Anak", "dr. Citra Lestari, Sp.A", "081234567803"],
+            ["Anak", "dr. Dimas Wijaya, Sp.A", "081234567804"],
+            ["Gigi", "drg. Eka Putri", "081234567805"],
+            ["Gigi", "drg. Fajar Ramadhan", "081234567806"],
+            ["Mata", "dr. Galih Saputra, Sp.M", "081234567807"],
+            ["Mata", "dr. Hani Permata, Sp.M", "081234567808"],
+        ];
 
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Penyakit Dalam')->first()->id,
-            'name' => 'Dr. Budi Santoso',
-            'phone' => '081234567802',
-        ]);
-
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Anak')->first()->id,
-            'name' => 'Dr. Citra Lestari',
-            'phone' => '081234567803',
-        ]);
-
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Anak')->first()->id,
-            'name' => 'Dr. Dimas Wijaya',
-            'phone' => '081234567804',
-        ]);
-
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Gigi')->first()->id,
-            'name' => 'Dr. Eka Putri',
-            'phone' => '081234567805',
-        ]);
-
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Gigi')->first()->id,
-            'name' => 'Dr. Fajar Ramadhan',
-            'phone' => '081234567806',
-        ]);
-
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Mata')->first()->id,
-            'name' => 'Dr. Galih Saputra',
-            'phone' => '081234567807',
-        ]);
-
-        Doctor::create([
-            'specialty_id' => Specialty::where('name', 'Mata')->first()->id,
-            'name' => 'Dr. Hani Permata',
-            'phone' => '081234567808',
-        ]);
+        foreach ($data as [$spesialisasi, $nama, $telepon]) {
+            Doctor::updateOrCreate(
+                ["name" => $nama],
+                [
+                    "specialty_id" => Specialty::where("name", $spesialisasi)->value("id"),
+                    "phone" => $telepon,
+                ]
+            );
+        }
     }
 }

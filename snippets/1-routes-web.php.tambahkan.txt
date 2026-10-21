@@ -1,0 +1,2 @@
+// === routes/web.php : tambahkan di PALING BAWAH berkas ===
+require __DIR__."/hospital.php";

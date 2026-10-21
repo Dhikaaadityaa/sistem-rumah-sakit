@@ -1,0 +1,25 @@
+// === Tambahkan ke app/Models/User.php (JANGAN menimpa seluruh berkas starter kit) ===
+
+// 1) Di dalam class, di atas properti:
+public const ROLE_ADMIN = "admin";
+public const ROLE_PATIENT = "patient";
+
+// 2) JANGAN masukkan "role" ke $fillable / #[Fillable]. Peran tidak boleh bisa
+//    diisi lewat formulir (mass assignment). Pengguna baru otomatis "patient"
+//    lewat nilai bawaan kolom; admin dibuat lewat seeder dengan forceFill().
+
+// 3) Method di dalam class:
+public function isAdmin(): bool
+{
+    return $this->role === self::ROLE_ADMIN;
+}
+
+public function isPatient(): bool
+{
+    return $this->role === self::ROLE_PATIENT;
+}
+
+public function appointments(): \Illuminate\Database\Eloquent\Relations\HasMany
+{
+    return $this->hasMany(\App\Models\Appointment::class);
+}

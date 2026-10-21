@@ -2,31 +2,22 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Specialty;
+use Illuminate\Database\Seeder;
 
 class SpecialtySeeder extends Seeder
 {
     public function run(): void
     {
-        Specialty::create([
-            'name' => 'Penyakit Dalam',
-            'description' => 'Menangani penyakit yang berkaitan dengan organ dalam tubuh.',
-        ]);
+        $data = [
+            ["Penyakit Dalam", "Menangani penyakit yang berkaitan dengan organ dalam tubuh."],
+            ["Anak", "Menangani kesehatan dan penyakit pada anak."],
+            ["Gigi", "Menangani kesehatan gigi dan mulut."],
+            ["Mata", "Menangani gangguan dan penyakit pada mata."],
+        ];
 
-        Specialty::create([
-            'name' => 'Anak',
-            'description' => 'Menangani kesehatan dan penyakit pada anak.',
-        ]);
-
-        Specialty::create([
-            'name' => 'Gigi',
-            'description' => 'Menangani kesehatan gigi dan mulut.',
-        ]);
-
-        Specialty::create([
-            'name' => 'Mata',
-            'description' => 'Menangani gangguan dan penyakit pada mata.',
-        ]);
+        foreach ($data as [$nama, $deskripsi]) {
+            Specialty::updateOrCreate(["name" => $nama], ["description" => $deskripsi]);
+        }
     }
 }

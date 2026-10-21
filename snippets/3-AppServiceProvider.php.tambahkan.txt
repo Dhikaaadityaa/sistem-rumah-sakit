@@ -1,0 +1,12 @@
+// === app/Providers/AppServiceProvider.php ===
+// use App\Models\User;
+// use Illuminate\Support\Facades\Gate;
+
+public function boot(): void
+{
+    // Gate: kewenangan yang TIDAK menunjuk satu baris data tertentu.
+    Gate::define("view-recap", fn (User $user) => $user->isAdmin());
+
+    // Policy (AppointmentPolicy, DoctorPolicy, SpecialtyPolicy, RoomPolicy) ditemukan
+    // otomatis lewat penamaan: App\Models\X  ->  App\Policies\XPolicy.
+}
