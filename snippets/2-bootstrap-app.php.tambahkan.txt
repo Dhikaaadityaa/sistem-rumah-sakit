@@ -1,8 +1,0 @@
-// === bootstrap/app.php : daftarkan alias middleware peran ===
-// (Laravel 11+ tidak memakai app/Http/Kernel.php lagi)
-//
-// Di dalam ->withMiddleware(function (Middleware $middleware) { ... }) tambahkan:
-
-$middleware->alias([
-    "role" => \App\Http\Middleware\EnsureRole::class,
-]);

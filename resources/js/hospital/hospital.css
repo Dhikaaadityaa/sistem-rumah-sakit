@@ -1,0 +1,75 @@
+/* Gaya mandiri (tanpa Tailwind) untuk halaman Sistem Rumah Sakit. Semua kelas berawalan rs-. */
+.rs-app{--rs-bg:#f4f7f9;--rs-card:#fff;--rs-ink:#14232e;--rs-mute:#5d7080;--rs-line:#dbe4ea;--rs-primary:#0b7a75;--rs-primary-d:#085e5a;--rs-danger:#c0392b;--rs-warn:#b7791f;--rs-ok:#1f8a4c;
+  min-height:100vh;background:var(--rs-bg);color:var(--rs-ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.5}
+.rs-app *{box-sizing:border-box}
+.rs-top{background:var(--rs-card);border-bottom:1px solid var(--rs-line);position:sticky;top:0;z-index:10}
+.rs-top-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.rs-brand{font-weight:700;color:var(--rs-primary);font-size:17px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.rs-brand i{width:26px;height:26px;border-radius:7px;background:var(--rs-primary);color:#fff;display:grid;place-items:center;font-style:normal;font-size:16px}
+.rs-nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.rs-nav a{padding:7px 12px;border-radius:8px;color:var(--rs-ink);text-decoration:none;font-weight:500}
+.rs-nav a:hover{background:#eaf1f4}
+.rs-nav a.on{background:#dff3f1;color:var(--rs-primary-d)}
+.rs-user{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--rs-mute)}
+.rs-main{max-width:1180px;margin:0 auto;padding:22px 16px 60px}
+.rs-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.rs-head h1{margin:0;font-size:24px}
+.rs-head p{margin:2px 0 0;color:var(--rs-mute)}
+.rs-card{background:var(--rs-card);border:1px solid var(--rs-line);border-radius:12px;padding:18px;margin-bottom:18px}
+.rs-card h2{margin:0 0 12px;font-size:16px}
+.rs-grid{display:grid;gap:14px}
+.rs-g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.rs-g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.rs-stat{background:var(--rs-card);border:1px solid var(--rs-line);border-radius:12px;padding:14px 16px}
+.rs-stat b{display:block;font-size:28px;line-height:1.1}
+.rs-stat span{color:var(--rs-mute);font-size:13px}
+.rs-btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rs-primary);background:var(--rs-primary);color:#fff;padding:8px 14px;border-radius:8px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.rs-btn:hover{background:var(--rs-primary-d)}
+.rs-btn:disabled{opacity:.6;cursor:not-allowed}
+.rs-btn.sec{background:#fff;color:var(--rs-primary-d)}
+.rs-btn.sec:hover{background:#eef7f6}
+.rs-btn.danger{background:#fff;border-color:var(--rs-danger);color:var(--rs-danger)}
+.rs-btn.danger:hover{background:#fdeceb}
+.rs-btn.sm{padding:4px 10px;font-size:13px}
+.rs-form label{display:block;font-weight:600;margin-bottom:4px;font-size:14px}
+.rs-form .rs-f{margin-bottom:14px}
+.rs-in,.rs-form input,.rs-form select,.rs-form textarea,.rs-filter input,.rs-filter select{width:100%;padding:8px 10px;border:1px solid #b9c7d1;border-radius:8px;font:inherit;background:#fff;color:inherit}
+.rs-in:focus,.rs-form input:focus,.rs-form select:focus,.rs-form textarea:focus,.rs-filter input:focus,.rs-filter select:focus{outline:2px solid #7fcdc8;border-color:var(--rs-primary)}
+.rs-err{color:var(--rs-danger);font-size:13px;margin-top:3px}
+.rs-help{color:var(--rs-mute);font-size:13px;margin-top:3px}
+.rs-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.rs-filter{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:16px}
+.rs-filter>div{flex:1 1 150px;min-width:130px}
+.rs-filter label{display:block;font-size:12px;color:var(--rs-mute);margin-bottom:2px}
+.rs-tw{overflow-x:auto;border:1px solid var(--rs-line);border-radius:12px;background:#fff}
+.rs-t{width:100%;border-collapse:collapse}
+.rs-t th,.rs-t td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--rs-line);vertical-align:middle}
+.rs-t th{background:#f0f5f8;font-size:13px;color:var(--rs-mute);font-weight:600;white-space:nowrap}
+.rs-t tr:last-child td{border-bottom:0}
+.rs-t .rs-r{text-align:right;white-space:nowrap}
+.rs-t .rs-r>*{margin-left:6px}
+.rs-empty{padding:28px;text-align:center;color:var(--rs-mute)}
+.rs-badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+.rs-b-pending,.rs-b-maintenance{background:#fdf3dc;color:#8a5a00}
+.rs-b-confirmed,.rs-b-available{background:#dcf3e6;color:#17693a}
+.rs-b-completed{background:#dfe9f7;color:#25518f}
+.rs-b-cancelled,.rs-b-occupied{background:#fbe3e0;color:#9b2c20}
+.rs-pg{display:flex;gap:4px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.rs-pg a,.rs-pg span{padding:5px 11px;border:1px solid var(--rs-line);border-radius:7px;background:#fff;color:var(--rs-ink);text-decoration:none;font-size:14px}
+.rs-pg a:hover{background:#eef7f6}
+.rs-pg .on{background:var(--rs-primary);color:#fff;border-color:var(--rs-primary)}
+.rs-pg .off{color:#a6b3bc}
+.rs-flash{background:#dcf3e6;border:1px solid #a9dcbd;color:#17693a;padding:10px 14px;border-radius:10px;margin-bottom:16px}
+.rs-alert{background:#fbe3e0;border:1px solid #efb3ac;color:#9b2c20;padding:10px 14px;border-radius:10px;margin-bottom:16px}
+.rs-dl{display:grid;grid-template-columns:150px 1fr;gap:8px 14px;margin:0}
+.rs-dl dt{color:var(--rs-mute)}
+.rs-dl dd{margin:0}
+.rs-bar{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:14px}
+.rs-bar .n{width:170px;flex:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rs-bar .t{flex:1;background:#e8eff3;border-radius:6px;height:14px;overflow:hidden}
+.rs-bar .t i{display:block;height:100%;background:var(--rs-primary);border-radius:6px}
+.rs-bar .v{width:34px;text-align:right;font-weight:600}
+.rs-link{color:var(--rs-primary-d);text-decoration:none;font-weight:600}
+.rs-link:hover{text-decoration:underline}
+.rs-muted{color:var(--rs-mute)}
+@media (max-width:600px){.rs-dl{grid-template-columns:1fr}.rs-bar .n{width:110px}}

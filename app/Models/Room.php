@@ -33,6 +33,6 @@ class Room extends Model
 
     public function getStatusLabelAttribute(): string
     {
-        return self::LABELS[$this->status] ?? $this->status;
+        return self::LABELS[$this->status] ?? ($this->status ?? 'Belum ditentukan');
     }
 }
